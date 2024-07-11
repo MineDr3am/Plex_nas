@@ -127,3 +127,18 @@ services:
     ports:
       - 8191:8191
     restart: unless-stopped
+
+  bazarr:
+    image: lscr.io/linuxserver/bazarr:latest
+    container_name: bazarr
+    environment:
+      - PUID=1026
+      - PGID=100
+      - TZ=Europe/Paris
+    volumes:
+      - ${CONFIG_BASEPATH}/bazarr:/config
+      - ${BASEPATH}/Films:/movies #optional
+      - ${BASEPATH}/Series:/tv #optional
+    ports:
+      - 6767:6767
+    restart: unless-stopped
