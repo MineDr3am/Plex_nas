@@ -142,3 +142,40 @@ services:
     ports:
       - 6767:6767
     restart: unless-stopped
+
+  mealie:
+    image: ghcr.io/mealie-recipes/mealie:nightly
+    container_name: mealie
+    ports:
+      - 9925:9000
+    deploy:
+      resources:
+        limits:
+          memory: 1000M
+    volumes:
+      - ${BASEPATH}/Mealie:/app/data
+    environment:
+      - PUID=1026
+      - PGID=100
+      - TZ=Europe/Paris
+      - MAX_WORKERS=1
+      - WEB_CONCURRENCY=1
+      - BASE_URL=https://mealie.nas.home
+      - ALLOW_SIGNUP=true
+    restart: unless-stopped
+
+
+  readarr:
+    image: lscr.io/linuxserver/readarr:develop
+    container_name: readarr
+    environment:
+      - PUID=1026
+      - PGID=100
+      - TZ=Europe/Paris
+    volumes:
+      - ${CONFIG_BASEPATH}/readarr:/config
+      - ${BASEPATH}/Fichiers/Livres/Romans:/books
+      - ${BASEPATH}/Download:/downloads
+    ports:
+      - 8787:8787
+    restart: unless-stopped
