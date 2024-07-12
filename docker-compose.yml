@@ -147,8 +147,8 @@ services:
     image: lscr.io/linuxserver/kavita:latest
     container_name: kavita
     environment:
-      - PUID=1000
-      - GUID=1000
+      - PUID=1026
+      - GUID=100
       - TZ=Europe/Paris
     volumes:
       - ${CONFIG_BASEPATH}/kavita:/config
