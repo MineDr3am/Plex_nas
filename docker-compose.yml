@@ -154,5 +154,5 @@ services:
       - ${CONFIG_BASEPATH}/kavita:/config
       - ${BASEPATH}/Fichiers/Livres:/data
     ports:
-      - 5000:5000
+      - 8383:5000
     restart: unless-stopped
