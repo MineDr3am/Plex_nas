@@ -144,7 +144,7 @@ services:
     restart: unless-stopped
 
   kavita:
-    image: ljvmilazz0/kavita:latest
+    image: lscr.io/linuxserver/kavita:latest
     container_name: kavita
     environment:
       - PUID=1026
