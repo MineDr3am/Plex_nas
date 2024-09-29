@@ -84,7 +84,9 @@ services:
       - TZ=Europe/Paris
     volumes:
       - ${CONFIG_BASEPATH}/readarr:/config
-      - ${BASEPATH}/Fichiers/Livres/Romans:/books
+      - ${BASEPATH}/Fichiers/Manga:/manga
+      - ${BASEPATH}/Fichiers/Comics:/comics
+      - ${BASEPATH}/Fichiers/Books:/books
       - ${BASEPATH}/Download:/downloads
     ports:
       - 8787:8787
